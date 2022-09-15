@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>숫자를 입력하세요</h1>
+	<form action="Add3" method="post" name="frm" onsubmit="return chk()">
+		<div>
+			<label for="num">숫자 : </label>
+			<input type="text" id="num" name="num">
+		</div>
+		
+		<div>
+			<label for="loc">위치 : </label> 
+			<input type="text" id="loc" name="loc">
+		</div>
+		
+		<div>
+			<input type="submit" value="확인">
+		</div>
+	</form>
+	
+<script>
+	function chk() {
+		var numInp = document.getElementById("num");
+		
+		if(numInp.value == '') {
+			alert("1개 이상 입력해주세요");
+			numInp.focus();
+			return false;
+		}
+		
+		if(isNaN(numInp.value)) {
+			alert("숫자만 입력");
+			numInp.value = "";
+			numInp.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
+</body>
+</html>

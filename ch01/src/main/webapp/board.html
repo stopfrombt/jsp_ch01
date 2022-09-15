@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Board</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>
+ <style>
+ 	textarea {
+ 		resize : none;
+ 	}
+ 	.container {
+ 		border : 1px solid gray;
+ 		border-radius: 20px;
+ 		padding : 20px;
+ 		margin: 30px auto;
+ 	}
+ 	.board-btn {
+ 		text-align : center;
+ 	}
+ </style>
+</head>
+<body>
+	<div class="container">
+		<h1>게시판</h1>
+		<hr>
+		<form action="Board" method="post" name="boardForm" onsubmit="return chk()">
+			<div class="form-group">
+				<label for="title">제목</label>
+				<input type="text" name="title" id="title" class="form-control">
+			</div>
+				
+			<div class="form-group">	
+				<label for="writer">작성자</label>
+				<input type="text" name="writer" id="writer" class="form-control">
+			</div>
+			
+			<div class="form-group">
+				<label for="content">내용</label>
+				<textarea name="content" id="content" class="form-control" rows="10" cols="40"></textarea>
+			</div>
+				
+			<div class="board-btn">	
+				<input type="submit" class="btn btn-default" value="완료">
+				<input type="reset" class="btn btn-default" value="다시작성">	
+			</div>
+		</form>
+	</div>
+
+<script>
+	function chk() {
+		var title = document.boardForm.title;
+		var writer = document.boardForm.writer;
+		var content = document.boardForm.content;
+		
+		if(title.value == '') {
+			alert("제목 입력해라");
+			title.focus();
+			return false;
+		}
+		
+		if(writer.value == '') {
+			alert("작성자 입력해라");
+			writer.focus();
+			return false;
+		}
+		
+		if(content.value == '') {
+			alert("내용 입력해라");
+			content.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</body>
+</html>
